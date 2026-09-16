@@ -1,5 +1,5 @@
 # SauceDemo QA Automation Project
-
+[![Playwright Tests](https://github.com/dderosena/playwright-python-qa-portfolio/actions/workflows/playwright.yml/badge.svg)](https://github.com/dderosena/playwright-python-qa-portfolio/actions/workflows/playwright.yml)
 Automated end-to-end UI testing project built with **Python, Playwright, and Pytest** using the SauceDemo e-commerce application.
 
 This project demonstrates automated testing of common user workflows including authentication, inventory validation, product sorting, shopping cart functionality, checkout, form validation, and logout.
