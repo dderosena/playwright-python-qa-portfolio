@@ -1,11 +1,11 @@
+from SauceDemo.pages.login_page import LoginPage
 from playwright.sync_api import expect
 
 def test_locked_user(page):
-    page.goto("https://www.saucedemo.com/")
+    login_page = LoginPage(page)
 
-    page.fill("#user-name", "locked_out_user")
-    page.fill("#password","secret_sauce")
-    page.click("#login-button")
+    login_page.open()
+    login_page.login("locked_out_user", "secret_sauce")
 
     expect(
         page.locator("[data-test='error']")

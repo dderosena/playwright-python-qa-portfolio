@@ -1,10 +1,12 @@
 from playwright.sync_api import expect
-
+from SauceDemo.pages.product_page import ProductPage
 
 def test_product_details(logged_in_page):
     page = logged_in_page
+    product_page = ProductPage(page)
 
-    page.click("#item_4_title_link")
+    product_page.open_backpack()
+
 
     expect(page.locator(".inventory_details_name")).to_have_text(
         "Sauce Labs Backpack"

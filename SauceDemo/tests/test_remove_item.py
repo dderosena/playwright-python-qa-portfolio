@@ -1,14 +1,12 @@
+from SauceDemo.pages.inventory_page import InventoryPage
 from playwright.sync_api import expect
 
-def test_remove_item(page):
-    page.goto("https://www.saucedemo.com/")
+def test_remove_item(logged_in_page):
+    page = logged_in_page
+    inventory_page = InventoryPage(page)
 
-    page.fill("#user-name", "standard_user")
-    page.fill("#password", "secret_sauce")
-    page.click("#login-button")
-
-    page.click("#add-to-cart-sauce-labs-backpack")
-    page.click("#remove-sauce-labs-backpack")
+    inventory_page.add_backpack_to_cart
+    inventory_page.remove_backpack
 
     expect(
         page.locator(".shopping_cart_badge")

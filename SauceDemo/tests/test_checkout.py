@@ -1,7 +1,10 @@
 from playwright.sync_api import expect
+from SauceDemo.pages.checkout_page import CheckoutPage
 
 def test_checkout(logged_in_page):
     page = logged_in_page
+    checkout_page = CheckoutPage(page)
+
 
     # Add item
     page.click("#add-to-cart-sauce-labs-backpack")
@@ -11,18 +14,15 @@ def test_checkout(logged_in_page):
     
     # Checkout
     page.click("#checkout")
-
-    # Enter customer info
-    page.fill("#first-name", "Dominique")
-    page.fill("#last-name", "Derosena")
-    page.fill("#postal-code", "94568")
-
-    # Continue
-    page.click("#continue")
-
-    # Finish order
-    page.click("#finish")
-
+    checkout_page.enter_customer_info(
+        "Dominique",
+        "Derosena",
+        "94568"
+    )
+    checkout_page.continue_checkout()
+    checkout_page.finish_checkout()
+    print("Current URL:", page.url)
+    print("Page text:", page.locator("body").inner_text())
     # Verify success
     expect(
         page.locator(".complete-header")
