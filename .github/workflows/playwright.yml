@@ -28,4 +28,4 @@ jobs:
         run: playwright install --with-deps chromium
 
       - name: Run Playwright tests
-        run: pytest -m pytestSauceDemo/tests -v
+        run: python -m pytest SauceDemo/tests/ -v
