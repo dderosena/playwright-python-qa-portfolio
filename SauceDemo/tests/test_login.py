@@ -5,7 +5,6 @@ def test_valid_login(page):
     login_page = LoginPage(page)
 
 
-
     login_page.open()
     login_page.login("standard_user", "secret_sauce")
 
