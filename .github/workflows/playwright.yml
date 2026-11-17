@@ -31,4 +31,4 @@ jobs:
         run: python -m pytest SauceDemo/tests/ -v
 
       - name: Run vehicle validation tests
-        run: python -m pytests AV_Validation/tests/ -v
+        run: python -m pytest AV_Validation/tests/ -v
