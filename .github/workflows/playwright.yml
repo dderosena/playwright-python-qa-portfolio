@@ -32,3 +32,6 @@ jobs:
 
       - name: Run vehicle validation tests
         run: python -m pytest AV_Validation/tests/ -v
+      
+      - name: Run API_Tests
+        run: python -m pytest API_tests/ -v
